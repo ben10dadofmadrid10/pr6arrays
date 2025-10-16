@@ -1,0 +1,79 @@
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Serie de Arrays - Ejercicio 06</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>🏷️ Arrays · Ejercicio 06: Posición y mayor valor</h2>
+
+    <div class="instrucciones">
+      <h3>📋 Instrucciones</h3>
+      <p>Usando el array <code>[15, 8, 23, 42, 7, 99, 14, 33, 50, 61]</code>, 
+      encuentra el <b>mayor valor</b> y muestra también en qué <b>posición (índice)</b> se encuentra.</p>
+    </div>
+
+
+    <ul id="listaNumeros" class="lista"></ul>
+
+
+    <div id="resultado" class="resultado">Aquí aparecerá el valor máximo y su posición.</div>
+
+    <button id="btnEjecutar" class="btn" type="button">¡Buscar mayor valor y su posición!</button>
+
+    <footer>Curso de JavaScript · Enseñanza Media | Ejercicio de Arrays 06</footer>
+  </div>
+
+
+  <script>
+    function buscarMayorYPosicion() {
+      let numeros = [15, 8, 23, 42, 7, 99, 14, 33, 50, 61];
+      let lista = document.getElementById('listaNumeros');
+      let resultado = document.getElementById('resultado');
+
+      lista.innerHTML = "";
+      resultado.innerText = "";
+
+     
+      for (let i = 0; i < numeros.length; i++) {
+        let item = document.createElement('li');
+        item.innerText = "Índice " + i + ": " + numeros[i];
+        lista.appendChild(item);
+      }
+
+   
+      let mayor = numeros[0];
+      let posicionMayor = 0;
+
+      console.log("buscarMayorYPosicion(): valor inicial del candidato = " + mayor);
+
+      
+      for (let i = 1; i < numeros.length; i++) {
+        if (numeros[i] > mayor) {
+          mayor = numeros[i];
+          posicionMayor = i;
+          console.log("Nuevo mayor → valor: " + mayor + " en índice " + posicionMayor);
+        }
+      }
+
+      
+      resultado.innerText = "🏆 El mayor valor del array es " + mayor + " y se encuentra en la posición (índice) " + posicionMayor + ".";
+      resultado.classList.add('mensaje-correcto');
+
+      console.log("buscarMayorYPosicion(): mayor final = " + mayor + " en posición = " + posicionMayor);
+    }
+
+   
+    let btnEjecutar = document.getElementById('btnEjecutar');
+    btnEjecutar.onclick = buscarMayorYPosicion;
+
+    
+    console.log('Script cargado: botón #btnEjecutar enlazado a buscarMayorYPosicion; listo para ejecutar.');
+  </script>
+</body>
+</html>
+
